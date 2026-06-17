@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en-NZ">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Tell Us More | Geraldine Berry Barn Bakery &amp; Cafe</title>
+<meta name="description" content="Private feedback for Geraldine Berry Barn Bakery & Cafe." />
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%F0%9F%8D%93%3C/text%3E%3C/svg%3E" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Yeseva+One&family=Nunito:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+<style>
+:root{--berry:#b8365a;--berry-deep:#7d1f3c;--cream:#fbf6ef;--bone:#f3e9dd;--ink:#2e2024;--ink-soft:#6a5a5f;--dark:#2a161d;--radius:18px;--shadow:0 18px 40px -18px rgba(72,20,38,.35)}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Nunito',system-ui,sans-serif;color:var(--ink);background:var(--dark);min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:30px 20px}
+h1{font-family:'Yeseva One',serif;font-weight:400;line-height:1.1}
+a{color:inherit;text-decoration:none}
+.logo{font-family:'Yeseva One';font-size:1.3rem;color:#fff;margin-bottom:26px;text-align:center}
+.logo span{color:#ffb3c6}
+.card{background:var(--cream);border-radius:24px;padding:46px 40px;max-width:560px;width:100%;box-shadow:var(--shadow);animation:rise .7s ease both}
+@keyframes rise{from{opacity:0;transform:translateY(30px)}to{opacity:1;transform:none}}
+.eyebrow{font-size:.78rem;letter-spacing:.22em;text-transform:uppercase;font-weight:800;color:var(--berry);display:block;margin-bottom:14px}
+.card h1{font-size:1.9rem;margin-bottom:10px}
+.card p.sub{color:var(--ink-soft);margin-bottom:26px}
+.rating-show{display:flex;gap:5px;font-size:1.5rem;color:#e8a13a;margin-bottom:24px}
+.rating-show .off{color:#dcc9b6}
+.field{margin-bottom:18px}
+.field label{display:block;font-weight:700;font-size:.88rem;margin-bottom:7px}
+.field input,.field textarea{width:100%;padding:13px 16px;border:1.5px solid #e6d8c9;border-radius:12px;font-family:'Nunito';font-size:1rem;background:#fff}
+.field input:focus,.field textarea:focus{outline:none;border-color:var(--berry);box-shadow:0 0 0 4px rgba(184,54,90,.12)}
+.field textarea{resize:vertical;min-height:120px}
+.btn{display:inline-flex;width:100%;justify-content:center;align-items:center;gap:8px;font-weight:800;font-size:1rem;padding:15px;border-radius:999px;cursor:pointer;border:0;background:var(--berry);color:#fff;transition:background .25s,transform .25s}
+.btn:hover{background:var(--berry-deep);transform:translateY(-2px)}
+.back{display:block;text-align:center;margin-top:26px;color:rgba(255,255,255,.7);font-weight:700;font-size:.92rem}
+.back:hover{color:#fff}
+.success{display:none;text-align:center;animation:rise .6s ease both}
+.success .tick{width:78px;height:78px;border-radius:50%;background:var(--berry);color:#fff;display:flex;align-items:center;justify-content:center;font-size:2.4rem;margin:0 auto 22px}
+.success h1{font-size:1.8rem;margin-bottom:10px}
+.success p{color:var(--ink-soft)}
+</style>
+</head>
+<body>
+<a href="index.html" class="logo">🍓 Geraldine <span>Berry Barn</span></a>
+<div class="card">
+  <div id="formView">
+    <span class="eyebrow">A quiet word</span>
+    <h1>Thanks for being honest</h1>
+    <p class="sub">We'd rather hear it straight from you so we can put it right. This comes only to us — not online.</p>
+    <div class="rating-show" id="ratingShow"></div>
+    <form action="https://formsubmit.co/berrybarn17@gmail.com" method="POST" id="fbForm">
+      <input type="hidden" name="_subject" value="Private feedback from Berry Barn website" />
+      <input type="hidden" name="_captcha" value="false" />
+      <input type="hidden" name="_template" value="table" />
+      <input type="hidden" name="rating" id="ratingField" value="" />
+      <div class="field"><label for="name">Your name</label><input id="name" type="text" name="name" required placeholder="First and last name" /></div>
+      <div class="field"><label for="email">Email</label><input id="email" type="email" name="email" required placeholder="you@example.com" /></div>
+      <div class="field"><label for="feedback">What could we have done better?</label><textarea id="feedback" name="feedback" required placeholder="Tell us what happened — we read every message."></textarea></div>
+      <button type="submit" class="btn">Send feedback</button>
+    </form>
+  </div>
+  <div class="success" id="successView">
+    <div class="tick">✓</div>
+    <h1>Thank you</h1>
+    <p>We really appreciate you taking the time. We'll look into it and make it right.</p>
+  </div>
+</div>
+<a href="index.html" class="back">← Back to the site</a>
+<script>
+const params=new URLSearchParams(location.search);
+const rating=Math.max(1,Math.min(3,parseInt(params.get('rating'))||1));
+document.getElementById('ratingField').value=rating;
+let html='';for(let i=1;i<=5;i++){html+=`<span class="${i<=rating?'':'off'}">★</span>`;}
+document.getElementById('ratingShow').innerHTML=html;
+// Show success state inline after submit (FormSubmit AJAX)
+const form=document.getElementById('fbForm');
+form.addEventListener('submit',function(e){
+  e.preventDefault();
+  fetch(form.action,{method:'POST',body:new FormData(form),headers:{'Accept':'application/json'}})
+    .then(()=>{document.getElementById('formView').style.display='none';document.getElementById('successView').style.display='block';})
+    .catch(()=>{document.getElementById('formView').style.display='none';document.getElementById('successView').style.display='block';});
+});
+</script>
+</body>
+</html>
