@@ -160,6 +160,26 @@ section{padding:84px 0}
 .gallery img{width:100%;height:auto;margin:0 0 14px;border-radius:var(--radius);break-inside:avoid;filter:saturate(.9) contrast(1.05)}
 @media(min-width:900px){.gallery{column-count:3;column-gap:18px}.gallery img{margin-bottom:18px}}
 
+
+/* drive 4 hearts */
+.d4h{--d4h-green:#024a42;--d4h-red:#ee2a35;background:var(--d4h-green);color:#eaf3f1}
+.d4h-top{display:grid;gap:32px;align-items:center;margin-bottom:40px}
+.d4h-logo{width:100%;max-width:440px;height:auto;border-radius:10px}
+.d4h h2{color:#fff;font-size:clamp(2.1rem,5vw,3.2rem);margin:20px 0 16px}
+.d4h p{color:rgba(234,243,241,.86);max-width:36rem}
+.d4h-facts{list-style:none;padding:0;margin:26px 0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
+.d4h-facts li{border-top:2px solid var(--d4h-red);padding-top:10px;font-size:.9rem;line-height:1.35;color:rgba(234,243,241,.8)}
+.d4h-facts b{display:block;font-family:"Bricolage Grotesque",sans-serif;font-size:clamp(1.4rem,3vw,1.9rem);color:#fff;line-height:1.1;margin-bottom:4px}
+.btn-red{background:var(--d4h-red);color:#fff}
+.btn-red:hover{background:#d41f2a}
+.d4h-photos{column-count:2;column-gap:14px}
+.d4h-photos figure{margin:0 0 14px;break-inside:avoid}
+.d4h-photos img{width:100%;height:auto;border-radius:var(--radius)}
+.d4h-photos figcaption{font-size:.85rem;color:rgba(234,243,241,.7);margin-top:6px}
+.d4h-credit{margin-top:18px;font-size:.85rem;color:rgba(234,243,241,.65)}
+.d4h-credit a{color:#fff}
+@media(min-width:900px){.d4h-top{grid-template-columns:1fr 1.1fr;gap:64px}.d4h-photos{column-count:3;column-gap:18px}}
+
 /* team */
 .team{display:grid;gap:18px}
 .person{background:#fff;border-radius:var(--radius);padding:28px 24px;box-shadow:var(--shadow)}
@@ -265,6 +285,7 @@ footer{background:#0f0d09;color:rgba(251,247,238,.7);padding:56px 0 30px;font-si
     <ul class="links">
       <li><a href="#menu">What's on</a></li>
       <li><a href="#about">About</a></li>
+      <li><a href="#drive4hearts">Drive 4 Hearts</a></li>
       <li><a href="#reviews">Reviews</a></li>
       <li><a href="#faq">FAQ</a></li>
       <li><a href="#contact">Find us</a></li>
@@ -277,6 +298,7 @@ footer{background:#0f0d09;color:rgba(251,247,238,.7);padding:56px 0 30px;font-si
   <nav class="menu-panel" id="menuPanel" aria-label="Mobile">
     <a href="#menu">What's on</a>
     <a href="#about">About</a>
+    <a href="#drive4hearts">Drive 4 Hearts</a>
     <a href="#reviews">Reviews</a>
     <a href="#faq">FAQ</a>
     <a href="#contact">Find us</a>
@@ -378,6 +400,36 @@ footer{background:#0f0d09;color:rgba(251,247,238,.7);padding:56px 0 30px;font-si
       <img src="images/gal-exterior.jpg" alt="The Bakery Cafe building on Talbot Street" width="950" height="633" loading="lazy">
       <img src="images/hero-signs.jpg" alt="Pies and coffee signs out the front of the Berry Barn" width="1900" height="1425" loading="lazy">
     </div>
+  </div>
+</section>
+
+
+<section id="drive4hearts" class="d4h" aria-labelledby="d4h-title">
+  <div class="wrap">
+    <div class="d4h-top">
+      <div>
+        <img class="d4h-logo" src="images/ChatGPT%20Image%20Sep%2028%2C%202026%2C%2010_29_43%20AM.png" alt="Drive 4 Hearts logo" width="2172" height="724" loading="lazy">
+      </div>
+      <div>
+        <h2 id="d4h-title">Drive 4 Hearts pulled in at the Barn</h2>
+        <p>Drive 4 Hearts is New Zealand's oldest Land Rover on a mission. The 1948 Series I was the 20th Land Rover ever built and the first to arrive in New Zealand. It drove from Dunedin to Auckland raising money for Manaaki Manawa, the University of Auckland's Centre for Heart Research, to develop a heart valve that grows with children's hearts.</p>
+        <p>When it came through Geraldine it parked up right outside the Barn, with Land Rovers lined up across Four Peaks Plaza and the bunting out.</p>
+        <ul class="d4h-facts">
+          <li><b>1948</b>Series I Land Rover</li>
+          <li><b>20th</b>Land Rover ever built</li>
+          <li><b>1,800km</b>Dunedin to Auckland</li>
+        </ul>
+        <a class="btn btn-red" href="https://www.justgiving.com/page/drive4hearts" target="_blank" rel="noopener">Support Drive 4 Hearts</a>
+      </div>
+    </div>
+    <div class="d4h-photos">
+      <figure><img src="images/IMG_7183.jpg" alt="The 1948 Drive 4 Hearts Land Rover parked outside the Berry Barn with a Land Rover banner above the door" width="640" height="480" loading="lazy"><figcaption>LR 1948 outside the Barn.</figcaption></figure>
+      <figure><img src="images/IMG_7181.jpg" alt="The Drive 4 Hearts plate on the Land Rover, supporting Manaaki Manawa Centre for Heart Research" width="640" height="480" loading="lazy"><figcaption>New Zealand's first Land Rover, raising funds for heart research.</figcaption></figure>
+      <figure><img src="images/IMG_7172.jpg" alt="Land Rovers lined up in Four Peaks Plaza, Geraldine" width="640" height="480" loading="lazy"><figcaption>Land Rovers lined up in Four Peaks Plaza.</figcaption></figure>
+      <figure><img src="images/IMG_7184.jpg" alt="The Drive 4 Hearts Land Rover under the Bakery Cafe sign and bunting" width="640" height="480" loading="lazy"><figcaption>Bunting out for the visit.</figcaption></figure>
+      <figure><img src="images/P1150204.JPG" alt="Side view of the 1948 Land Rover beside the Berry Barn" width="320" height="240" loading="lazy"><figcaption>Parked up on Talbot Street.</figcaption></figure>
+    </div>
+    <p class="d4h-credit">Learn more about the journey on <a href="https://www.justgiving.com/page/drive4hearts" target="_blank" rel="noopener">the Drive 4 Hearts JustGiving page</a>.</p>
   </div>
 </section>
 
